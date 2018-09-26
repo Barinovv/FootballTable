@@ -2,11 +2,13 @@ package com.example.antoxa.footballtable;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    private  String TAG;
     private Integer loko = 0;
     private Integer cska = 0;
 
@@ -47,5 +49,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("loko", loko);
+        Log.d(TAG, "onSaveInstanceState");
+        outState.putInt("cska", cska);
+        Log.d(TAG, "onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if (savedInstanceState != null &&
+                savedInstanceState.containsKey("loko")) {
+            loko = savedInstanceState.getInt("loko");
+        }
+
+        if (savedInstanceState != null &&
+                savedInstanceState.containsKey("cska")) {
+            cska = savedInstanceState.getInt("cska");
+        }
+
+        Log.d(TAG, "onRestoreInstanceState");
+    }
 
 }
