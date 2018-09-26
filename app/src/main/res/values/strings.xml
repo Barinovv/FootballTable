@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Футбольное поле</string>
+    <string name="app_name">Футбольное табло</string>
     <string name="txt_first">Счет противостояния</string>
     <string name="btn_first">Локомотив</string>
     <string name="btn_second">ЦСКА</string>
